@@ -61,7 +61,9 @@ build() {
     if [ $? -eq 0 ]; then
       meteor remove-platform android 2>&1 | indent
     fi
+    head "test"
     set -e  # back to failing if any command fails
+    head "test2"
     meteor build ../build --directory 2>&1 | indent
     head "Installing App's NPM Dependencies"
     (cd ../build/bundle/programs/server && npm install 2>&1 | indent)
